@@ -4,29 +4,29 @@ using namespace std;
 #define yes cout<<"YES"<<endl
 #define no cout<<"NO"<<endl
 #define fast_io ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL);
+void insertionArr(int arr[],int n, int k,int val)
+{
+    for(int i=n;i>=k;i--)
+    {
+        arr[i]=arr[i-1];
+    }
+    arr[k-1]=val;
+}
 int main()
 {
     fast_io;
 
-    int n,val;cin>>n>>val;
-    int arr[n];
+    int n,k;cin>>n>>k;
+    int arr[n+1];
     for(int i=0;i<n;i++)
     {
         cin>>arr[i];
     }
-    sort(arr,arr+n);
-    int l=0,r=n-1;
-    while(l<=r)
+
+    insertionArr(arr,n,k,100);
+    for(int i=0;i<=n;i++)
     {
-        int mid=(l+r)/2;
-        if(arr[mid]==val)
-        {
-            cout<<"Found"<<endl;
-            return 0;
-        }
-        if(arr[mid]<val) l=mid+1;
-        else r=mid-1;
+        cout<<arr[i]<<" ";
     }
-    cout<<"NOt found"<<endl;
     return 0;
 }

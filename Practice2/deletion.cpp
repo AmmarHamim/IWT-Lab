@@ -8,25 +8,22 @@ int main()
 {
     fast_io;
 
-    int n,val;cin>>n>>val;
+    int n,k;cin>>n>>k;
     int arr[n];
     for(int i=0;i<n;i++)
     {
         cin>>arr[i];
     }
-    sort(arr,arr+n);
-    int l=0,r=n-1;
-    while(l<=r)
+
+    for(int i=k-1;i<n;i++)
     {
-        int mid=(l+r)/2;
-        if(arr[mid]==val)
-        {
-            cout<<"Found"<<endl;
-            return 0;
-        }
-        if(arr[mid]<val) l=mid+1;
-        else r=mid-1;
+        arr[i]=arr[i+1];
     }
-    cout<<"NOt found"<<endl;
+    for(int i=0;i<n-1;i++)
+    {
+        
+        cout<<arr[i]<<" ";
+    }
+
     return 0;
 }

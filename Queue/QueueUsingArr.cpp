@@ -55,6 +55,26 @@ void display(){
         if(i==rear)break;
         i=(i+1)%maxSize;
     }
+    cout<<endl;
+}
+
+int peekFront()
+{
+    if(isEmpty())
+    {
+        cout<<"khali"<<endl;
+        return -1;
+    }
+    return q[front];
+}
+int peekRear()
+{
+    if(isEmpty())
+    {
+        cout<<"khali"<<endl;
+        return -1;
+    }
+    return q[rear];
 }
 
 int Size(){
@@ -86,5 +106,6 @@ int main()
     dequeue();
     enqueue(29);
     display();
+    cout<<peekFront()<<" "<<peekRear()<<endl;
     return 0;
 }
